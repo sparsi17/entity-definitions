@@ -8,39 +8,26 @@
       "widgets": [
         {
           "title": "Request Count",
-          "layout": { "column": 1, "row": 1, "width": 4, "height": 3 },
+          "layout": { "column": 1, "row": 1, "width": 6, "height": 3 },
           "visualization": { "id": "viz.line" },
           "rawConfiguration": {
             "nrqlQueries": [
               {
                 "accountId": 0,
-                "query": "FROM Metric SELECT sum(gcp.apigateway.http.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
+                "query": "FROM Metric SELECT sum(gcp.apigateway.proxy.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
             ]
           }
         },
         {
           "title": "Error Rate",
-          "layout": { "column": 5, "row": 1, "width": 4, "height": 3 },
+          "layout": { "column": 7, "row": 1, "width": 6, "height": 3 },
           "visualization": { "id": "viz.line" },
           "rawConfiguration": {
             "nrqlQueries": [
               {
                 "accountId": 0,
-                "query": "FROM Metric SELECT filter(sum(gcp.apigateway.http.request_count), WHERE response_code_class IN ('4xx', '5xx')) * 100 / sum(gcp.apigateway.http.request_count) AS 'Error Rate %' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
-              }
-            ]
-          }
-        },
-        {
-          "title": "Request Latency (avg ms)",
-          "layout": { "column": 9, "row": 1, "width": 4, "height": 3 },
-          "visualization": { "id": "viz.line" },
-          "rawConfiguration": {
-            "nrqlQueries": [
-              {
-                "accountId": 0,
-                "query": "FROM Metric SELECT average(gcp.apigateway.http.request_latencies) * 1000 AS 'Latency (ms)' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
+                "query": "FROM Metric SELECT filter(sum(gcp.apigateway.proxy.request_count), WHERE response_code_class IN ('4xx', '5xx')) * 100 / sum(gcp.apigateway.proxy.request_count) AS 'Error Rate %' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
             ]
           }
@@ -53,46 +40,20 @@
             "nrqlQueries": [
               {
                 "accountId": 0,
-                "query": "FROM Metric SELECT sum(gcp.apigateway.http.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' FACET response_code_class"
+                "query": "FROM Metric SELECT sum(gcp.apigateway.proxy.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' FACET response_code_class"
               }
             ]
           }
         },
         {
-          "title": "Request Sizes (avg bytes)",
+          "title": "Requests by API Config",
           "layout": { "column": 7, "row": 4, "width": 6, "height": 3 },
           "visualization": { "id": "viz.line" },
           "rawConfiguration": {
             "nrqlQueries": [
               {
                 "accountId": 0,
-                "query": "FROM Metric SELECT average(gcp.apigateway.http.request_sizes) AS 'Avg Request Size (bytes)' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
-              }
-            ]
-          }
-        },
-        {
-          "title": "Response Sizes (avg bytes)",
-          "layout": { "column": 1, "row": 7, "width": 6, "height": 3 },
-          "visualization": { "id": "viz.line" },
-          "rawConfiguration": {
-            "nrqlQueries": [
-              {
-                "accountId": 0,
-                "query": "FROM Metric SELECT average(gcp.apigateway.http.response_sizes) AS 'Avg Response Size (bytes)' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
-              }
-            ]
-          }
-        },
-        {
-          "title": "Requests by Backend Service",
-          "layout": { "column": 7, "row": 7, "width": 6, "height": 3 },
-          "visualization": { "id": "viz.line" },
-          "rawConfiguration": {
-            "nrqlQueries": [
-              {
-                "accountId": 0,
-                "query": "FROM Metric SELECT sum(gcp.apigateway.http.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO FACET backend_service"
+                "query": "FROM Metric SELECT sum(gcp.apigateway.proxy.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO FACET api_config"
               }
             ]
           }

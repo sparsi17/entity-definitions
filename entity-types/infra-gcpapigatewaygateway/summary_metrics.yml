@@ -11,7 +11,3 @@ errorRate:
   goldenMetric: errorRate
   unit: PERCENTAGE
   title: Error rate
-latency:
-  goldenMetric: latency
-  unit: MS
-  title: Request latency (p50)
