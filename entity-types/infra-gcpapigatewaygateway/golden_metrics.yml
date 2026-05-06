@@ -1,0 +1,29 @@
+requestCount:
+  title: Request count
+  unit: COUNT
+  queries:
+    gcp:
+      select: sum(gcp.apigateway.http.request_count)
+      from: Metric
+      eventId: entity.guid
+      eventName: entity.name
+
+errorRate:
+  title: Error rate
+  unit: PERCENTAGE
+  queries:
+    gcp:
+      select: filter(sum(gcp.apigateway.http.request_count), WHERE response_code_class IN ('4xx', '5xx')) * 100 / sum(gcp.apigateway.http.request_count)
+      from: Metric
+      eventId: entity.guid
+      eventName: entity.name
+
+latency:
+  title: Request latency (p50)
+  unit: MS
+  queries:
+    gcp:
+      select: average(gcp.apigateway.http.request_latencies) * 1000
+      from: Metric
+      eventId: entity.guid
+      eventName: entity.name
