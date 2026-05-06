@@ -15,11 +15,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT sum(gcp.apigateway.http.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         },
         {
@@ -30,11 +29,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT filter(sum(gcp.apigateway.http.request_count), WHERE response_code_class IN ('4xx', '5xx')) * 100 / sum(gcp.apigateway.http.request_count) AS 'Error Rate %' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         },
         {
@@ -45,11 +43,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT average(gcp.apigateway.http.request_latencies) * 1000 AS 'Latency (ms)' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         },
         {
@@ -60,11 +57,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT sum(gcp.apigateway.http.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' FACET response_code_class"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         },
         {
@@ -75,11 +71,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT average(gcp.apigateway.http.request_sizes) AS 'Avg Request Size (bytes)' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         },
         {
@@ -90,11 +85,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT average(gcp.apigateway.http.response_sizes) AS 'Avg Response Size (bytes)' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         },
         {
@@ -105,11 +99,10 @@
           "rawConfiguration": {
             "nrqlQueries": [
               {
-                "accountIds": [],
+                "accountId": 0,
                 "query": "FROM Metric SELECT sum(gcp.apigateway.http.request_count) AS 'Requests' WHERE entity.guid = '{{entity.id}}' TIMESERIES AUTO FACET backend_service"
               }
-            ],
-            "platformOptions": { "ignoreTimeRange": false }
+            ]
           }
         }
       ]
