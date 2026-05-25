@@ -1,0 +1,17 @@
+providerAccountName:
+  tag:
+    key: providerAccountName
+  title: GCP account
+  unit: STRING
+hitRatio:
+  goldenMetric: hitRatio
+  unit: PERCENTAGE
+  title: Hit ratio
+cpuUtilization:
+  goldenMetric: cpuUtilization
+  unit: PERCENTAGE
+  title: CPU utilization
+operationCount:
+  goldenMetric: operationCount
+  unit: COUNT
+  title: Operation count

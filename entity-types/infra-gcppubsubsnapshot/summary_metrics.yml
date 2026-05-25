@@ -1,0 +1,17 @@
+providerAccountName:
+  tag:
+    key: providerAccountName
+  title: GCP account
+  unit: STRING
+numMessages:
+  goldenMetric: numMessages
+  unit: COUNT
+  title: Snapshot messages
+backlogBytes:
+  goldenMetric: backlogBytes
+  unit: BYTES
+  title: Backlog size
+oldestMessageAge:
+  goldenMetric: oldestMessageAge
+  unit: SECONDS
+  title: Oldest message age

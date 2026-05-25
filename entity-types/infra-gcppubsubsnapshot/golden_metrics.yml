@@ -1,0 +1,24 @@
+numMessages:
+  queries:
+    gcp:
+      eventId: entity.guid
+      select: sum(`gcp.pubsub.snapshot.num_messages`)
+      from: Metric
+  unit: COUNT
+  title: Snapshot messages
+backlogBytes:
+  queries:
+    gcp:
+      eventId: entity.guid
+      select: sum(`gcp.pubsub.snapshot.backlog_bytes`)
+      from: Metric
+  unit: BYTES
+  title: Backlog size
+oldestMessageAge:
+  queries:
+    gcp:
+      eventId: entity.guid
+      select: max(`gcp.pubsub.snapshot.oldest_message_age`)
+      from: Metric
+  unit: SECONDS
+  title: Oldest message age
