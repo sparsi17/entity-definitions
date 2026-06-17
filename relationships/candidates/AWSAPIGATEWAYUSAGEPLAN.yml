@@ -1,0 +1,16 @@
+category: AWSAPIGATEWAYUSAGEPLAN
+lookups:
+- entityTypes:
+  - domain: INFRA
+    type: AWSAPIGATEWAYUSAGEPLAN
+  tags:
+    matchingMode: ALL
+    predicates:
+      - tagKeys: ["UsagePlanId"]
+        field: UsagePlanId
+    onMatch:
+      onMultipleMatches: RELATE_ALL
+    onMiss:
+      action: CREATE_UNINSTRUMENTED
+      uninstrumented:
+        type: AWSAPIGATEWAYUSAGEPLAN
