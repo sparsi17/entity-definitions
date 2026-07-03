@@ -25,21 +25,3 @@ avgIoLatency:
       from: Metric
       eventId: entity.guid
       eventName: entity.name
-throttledReadOps:
-  title: Throttled Read Operations
-  unit: COUNT
-  queries:
-    gcp:
-      select: sum(`gcp.compute.instance.disk.throttled_read_ops_count`)
-      from: Metric
-      eventId: entity.guid
-      eventName: entity.name
-throttledWriteOps:
-  title: Throttled Write Operations
-  unit: COUNT
-  queries:
-    gcp:
-      select: sum(`gcp.compute.instance.disk.throttled_write_ops_count`)
-      from: Metric
-      eventId: entity.guid
-      eventName: entity.name

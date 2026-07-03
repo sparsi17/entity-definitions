@@ -20,11 +20,3 @@ avgIoLatency:
   goldenMetric: avgIoLatency
   unit: MS
   title: Average I/O Latency
-throttledReadOps:
-  goldenMetric: throttledReadOps
-  unit: COUNT
-  title: Throttled Read Operations
-throttledWriteOps:
-  goldenMetric: throttledWriteOps
-  unit: COUNT
-  title: Throttled Write Operations
