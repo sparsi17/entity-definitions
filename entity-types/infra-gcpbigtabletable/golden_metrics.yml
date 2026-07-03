@@ -3,7 +3,7 @@ replicationRequestLatenciesMs:
   unit: MS
   queries:
     gcp:
-      select: average(gcp.bigtable.replication_latency)
+      select: average(gcp.bigtable.replication.latency)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
