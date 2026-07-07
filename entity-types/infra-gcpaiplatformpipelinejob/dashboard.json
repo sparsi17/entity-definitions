@@ -1,0 +1,86 @@
+{
+  "name": "GCP AI Platform Pipeline Job",
+  "pages": [
+    {
+      "name": "GCP AI Platform Pipeline Job",
+      "widgets": [
+        {
+          "visualization": {
+            "id": "viz.line"
+          },
+          "layout": {
+            "column": 1,
+            "row": 1,
+            "height": 3,
+            "width": 6
+          },
+          "title": "Pipeline Job Duration (s)",
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "query": "FROM Metric SELECT average(`gcp.aiplatform.pipelinejob.duration`) AS 'Duration (s)' WHERE entity.guid = {{entity.id}} TIMESERIES AUTO",
+                "accountId": 0}
+            ]
+          }
+        },
+        {
+          "visualization": {
+            "id": "viz.line"
+          },
+          "layout": {
+            "column": 7,
+            "row": 1,
+            "height": 3,
+            "width": 6
+          },
+          "title": "Pipeline Task Completion Rate",
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "query": "FROM Metric SELECT rate(sum(`gcp.aiplatform.pipelinejob.task_completed_count`), 1 second) AS 'Tasks/s' WHERE entity.guid = {{entity.id}} TIMESERIES AUTO",
+                "accountId": 0}
+            ]
+          }
+        },
+        {
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "layout": {
+            "column": 1,
+            "row": 4,
+            "height": 3,
+            "width": 6
+          },
+          "title": "Pipeline Task Completion Rate (1h)",
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "query": "FROM Metric SELECT rate(sum(`gcp.aiplatform.pipelinejob.task_completed_count`), 1 second) AS 'Tasks/s' WHERE entity.guid = {{entity.id}} SINCE 1 hour ago",
+                "accountId": 0}
+            ]
+          }
+        },
+        {
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "layout": {
+            "column": 7,
+            "row": 4,
+            "height": 3,
+            "width": 6
+          },
+          "title": "Latest Runtime (s)",
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "query": "FROM Metric SELECT latest(`gcp.aiplatform.pipelinejob.duration`) AS 'Latest Runtime (s)' WHERE entity.guid = {{entity.id}} SINCE 1 hour ago",
+                "accountId": 0}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
