@@ -1,0 +1,144 @@
+{
+  "name": "GCP Firebase Storage",
+  "description": null,
+  "pages": [
+    {
+      "name": "GCP Firebase Storage",
+      "description": null,
+      "widgets": [
+        {
+          "title": "Rule evaluations",
+          "layout": {
+            "column": 1,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountId": 0,
+                "query": "SELECT sum(`gcp.firebasestorage.rules.evaluation_count`) FROM Metric WHERE entity.guid = '{{entity.guid}}' TIMESERIES AUTO"
+              }
+            ],
+            "yAxisLeft": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "title": "Rule evaluations by result",
+          "layout": {
+            "column": 5,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountId": 0,
+                "query": "SELECT sum(`gcp.firebasestorage.rules.evaluation_count`) FROM Metric WHERE entity.guid = '{{entity.guid}}' FACET `metric.result` TIMESERIES AUTO"
+              }
+            ],
+            "yAxisLeft": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "title": "Rule evaluations by request method",
+          "layout": {
+            "column": 9,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountId": 0,
+                "query": "SELECT sum(`gcp.firebasestorage.rules.evaluation_count`) FROM Metric WHERE entity.guid = '{{entity.guid}}' FACET `metric.request_method` TIMESERIES AUTO"
+              }
+            ],
+            "yAxisLeft": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "title": "Rule evaluations by ruleset label",
+          "layout": {
+            "column": 1,
+            "row": 4,
+            "width": 4,
+            "height": 3
+          },
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountId": 0,
+                "query": "SELECT sum(`gcp.firebasestorage.rules.evaluation_count`) FROM Metric WHERE entity.guid = '{{entity.guid}}' FACET `metric.ruleset_label` TIMESERIES AUTO"
+              }
+            ],
+            "yAxisLeft": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "title": "Denied evaluations",
+          "layout": {
+            "column": 5,
+            "row": 4,
+            "width": 4,
+            "height": 3
+          },
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountId": 0,
+                "query": "SELECT sum(`gcp.firebasestorage.rules.evaluation_count`) AS 'Denied' FROM Metric WHERE entity.guid = '{{entity.guid}}' AND `metric.result` = 'DENY'"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Errored evaluations",
+          "layout": {
+            "column": 9,
+            "row": 4,
+            "width": 4,
+            "height": 3
+          },
+          "visualization": {
+            "id": "viz.billboard"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountId": 0,
+                "query": "SELECT sum(`gcp.firebasestorage.rules.evaluation_count`) AS 'Errored' FROM Metric WHERE entity.guid = '{{entity.guid}}' AND `metric.result` = 'ERROR'"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
