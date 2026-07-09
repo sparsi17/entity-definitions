@@ -147,6 +147,8 @@ goldenTags:
 - clusterName
 - topic
 - kafka.cluster.name
+- gcp.projectId
+- gcp.region
 
 dashboardTemplates:
   # This should match the entity created from the ohi
@@ -155,6 +157,9 @@ dashboardTemplates:
   # otel receiver
   opentelemetry:
     template: opentelemetry_dashboard.json
+  # GCP Managed Kafka
+  gcp:
+    template: gcp_dashboard.json
 
 ownership:
   primaryOwner:
