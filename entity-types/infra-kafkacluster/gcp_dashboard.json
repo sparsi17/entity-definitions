@@ -47,7 +47,7 @@
           }
         },
         {
-          "title": "Request Latency p99 (ms)",
+          "title": "Request Latency (ms)",
           "layout": {
             "column": 9,
             "row": 1,
@@ -61,7 +61,7 @@
             "nrqlQueries": [
               {
                 "accountId": 0,
-                "query": "FROM Metric SELECT average(`gcp.managedkafka.request_latencies`) AS 'p99 (ms)' AND `metric.percentile` = '99' TIMESERIES AUTO"
+                "query": "FROM Metric SELECT average(`gcp.managedkafka.request_latencies`) AS 'Latency (ms)' TIMESERIES AUTO"
               }
             ]
           }
