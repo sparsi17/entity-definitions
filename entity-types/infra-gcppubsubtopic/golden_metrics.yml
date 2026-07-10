@@ -3,7 +3,7 @@ sendMessageRequests:
     gcp:
       eventId: entity.guid
       eventName: entity.name
-      select: sum(`gcp.pubsub.topic.send_request_count`)
+      select: (rate(sum(`gcp.pubsub.topic.send_request_count`), 1 minute)) / 60
       from: Metric
     gcpSample:
       eventId: entityGuid

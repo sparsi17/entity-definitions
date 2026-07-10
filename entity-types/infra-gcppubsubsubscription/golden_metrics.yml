@@ -26,7 +26,7 @@ oldestUnackedMessageAge:
   unit: SECONDS
   queries:
     gcp:
-      select: latest(`gcp.pubsub.subscription.oldest_unacked_message_age`)
+      select: max(`gcp.pubsub.subscription.oldest_unacked_message_age`)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
