@@ -3,7 +3,7 @@ executingPipelineJobs:
   unit: COUNT
   queries:
     gcp:
-      select: sum(gcp.aiplatform.executing_vertexai_pipeline_jobs)
+      select: average(gcp.aiplatform.executing_vertexai_pipeline_jobs)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
@@ -18,7 +18,7 @@ pipelineTasks:
       eventId: entityGuid
       eventName: entityName
     gcp:
-      select: sum(gcp.aiplatform.executing_vertexai_pipeline_tasks)
+      select: average(gcp.aiplatform.executing_vertexai_pipeline_tasks)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
@@ -33,7 +33,7 @@ onlinePredictionRequestsPerBaseModel:
       eventId: entityGuid
       eventName: entityName
     gcp:
-      select: average(gcp.aiplatform.online_prediction_requests_per_base_model)
+      select: sum(gcp.aiplatform.online_prediction_requests_per_base_model)
       from: Metric
       eventId: entity.guid
       eventName: entity.name

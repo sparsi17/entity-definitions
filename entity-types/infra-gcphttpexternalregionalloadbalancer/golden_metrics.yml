@@ -17,7 +17,7 @@ backendLatencyMs:
   unit: MS
   queries:
     gcp:
-      select: average(gcp.loadbalancing.https.external.regional.backend_latencies) / 1000
+      select: percentile(gcp.loadbalancing.https.external.regional.backend_latencies, 95)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
@@ -45,7 +45,7 @@ totalLatencyMs:
   unit: MS
   queries:
     gcp:
-      select: average(gcp.loadbalancing.https.external.regional.total_latencies) / 1000
+      select: percentile(gcp.loadbalancing.https.external.regional.total_latencies, 95)
       from: Metric
       eventId: entity.guid
       eventName: entity.name

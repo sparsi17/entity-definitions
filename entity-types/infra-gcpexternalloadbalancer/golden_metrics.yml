@@ -31,7 +31,7 @@ latency:
   unit: SECONDS
   queries:
     gcp:
-      select: average(gcp.loadbalancing.l3.external.rtt_latencies) / 1000
+      select: percentile(gcp.loadbalancing.l3.external.rtt_latencies, 95) / 1000
       from: Metric
       eventId: entity.guid
       eventName: entity.name
