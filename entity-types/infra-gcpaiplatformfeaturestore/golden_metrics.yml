@@ -36,7 +36,7 @@ latency:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(featurestore.online_serving.Latencies)
+      select: percentile(featurestore.online_serving.Latencies, 95)
       from: GcpVertexAiFeaturestoreSample
       eventId: entityGuid
       eventName: entityName

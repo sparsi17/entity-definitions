@@ -22,7 +22,7 @@ latencies:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(matchingEngine.streamUpdate.Latencies)
+      select: percentile(matchingEngine.streamUpdate.Latencies, 95)
       from: GcpVertexAiIndexSample
       eventId: entityGuid
       eventName: entityName
@@ -36,7 +36,7 @@ datapointCount:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(matchingEngine.streamUpdate.Datapoint)
+      select: sum(matchingEngine.streamUpdate.Datapoint)
       from: GcpVertexAiIndexSample
       eventId: entityGuid
       eventName: entityName

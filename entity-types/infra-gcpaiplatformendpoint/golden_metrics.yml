@@ -36,7 +36,7 @@ bytesSent:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(prediction.online.network.SentBytes)
+      select: sum(prediction.online.network.SentBytes)
       from: GcpVertexAiEndpointSample
       eventId: entityGuid
       eventName: entityName
@@ -50,7 +50,7 @@ bytesReceived:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(prediction.online.network.ReceivedBytes)
+      select: sum(prediction.online.network.ReceivedBytes)
       from: GcpVertexAiEndpointSample
       eventId: entityGuid
       eventName: entityName

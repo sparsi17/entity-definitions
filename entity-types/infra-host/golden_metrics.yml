@@ -146,7 +146,7 @@ networkTrafficTx:
       eventId: entityGuid
       eventName: entityName
     gcpSample:
-      select: average(instance.network.SentBytes)
+      select: rate(sum(instance.network.SentBytes), 1 second)
       from: GcpVirtualMachineSample
       eventId: entityGuid
       eventName: entityName
@@ -204,7 +204,7 @@ networkTrafficRx:
       eventId: entityGuid
       eventName: entityName
     gcpSample:
-      select: average(instance.network.ReceivedBytes)
+      select: rate(sum(instance.network.ReceivedBytes), 1 second)
       from: GcpVirtualMachineSample
       eventId: entityGuid
       eventName: entityName

@@ -36,7 +36,7 @@ latency:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(`l3.external.RttLatencies`) / 1000
+      select: percentile(`l3.external.RttLatencies`, 95) / 1000
       from: GcpExternalLoadBalancerSample
       eventId: entityGuid
       eventName: entityName

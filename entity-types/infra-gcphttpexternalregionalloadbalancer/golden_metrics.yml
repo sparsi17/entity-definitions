@@ -22,7 +22,7 @@ backendLatencyMs:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(`https.external.regional.BackendLatencies`) / 1000
+      select: percentile(`https.external.regional.BackendLatencies`, 95)
       from: GcpHttpExternalRegionalLoadBalancerSample
       eventId: entityGuid
       eventName: entityName
@@ -50,7 +50,7 @@ totalLatencyMs:
       eventId: entity.guid
       eventName: entity.name
     gcpSample:
-      select: average(`https.external.regional.TotalLatencies`) / 1000
+      select: percentile(`https.external.regional.TotalLatencies`, 95)
       from: GcpHttpExternalRegionalLoadBalancerSample
       eventId: entityGuid
       eventName: entityName

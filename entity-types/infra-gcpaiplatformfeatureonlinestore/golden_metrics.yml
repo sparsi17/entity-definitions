@@ -17,7 +17,7 @@ latencies:
   unit: MS
   queries:
     gcpSample:
-      select: average(featureonlinestore.onlineServing.ServingLatencies)
+      select: percentile(featureonlinestore.onlineServing.ServingLatencies, 95)
       from: GcpVertexAiFeatureOnlineStoreSample
       eventId: entityGuid
       eventName: entityName

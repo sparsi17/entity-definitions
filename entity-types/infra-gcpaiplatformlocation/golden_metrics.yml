@@ -13,7 +13,7 @@ pipelineTasks:
   unit: COUNT
   queries:
     gcpSample:
-      select: sum(executingVertexaiPipelineTasks)
+      select: average(executingVertexaiPipelineTasks)
       from: GcpVertexAiLocationSample
       eventId: entityGuid
       eventName: entityName
@@ -28,7 +28,7 @@ onlinePredictionRequestsPerBaseModel:
   unit: COUNT
   queries:
     gcpSample:
-      select: average(onlinePredictionRequestsPerBaseModel)
+      select: sum(onlinePredictionRequestsPerBaseModel)
       from: GcpVertexAiLocationSample
       eventId: entityGuid
       eventName: entityName
