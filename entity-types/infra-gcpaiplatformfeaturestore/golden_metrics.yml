@@ -27,7 +27,7 @@ cpuLoad:
       eventId: entityGuid
       eventName: entityName
 latency:
-  title: Latency
+  title: Latency p95 (ms)
   unit: MS
   queries:
     gcp:

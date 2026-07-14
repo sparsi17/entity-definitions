@@ -13,7 +13,7 @@ request:
       eventId: entityGuid
       eventName: entityName
 latencies:
-  title: Latency
+  title: Latency p95 (ms)
   unit: MS
   queries:
     gcp:

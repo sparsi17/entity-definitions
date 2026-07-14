@@ -27,7 +27,7 @@ Received:
       eventId: entityGuid
       eventName: entityName
 latency:
-  title: Latency
+  title: Latency p95 (s)
   unit: SECONDS
   queries:
     gcp:

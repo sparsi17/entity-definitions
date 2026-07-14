@@ -13,7 +13,7 @@ backendRequestsRate:
       eventId: entityGuid
       eventName: entityName
 backendLatencyMs:
-  title: Backend Latency
+  title: Backend Latency p95 (ms)
   unit: MS
   queries:
     gcp:
@@ -41,7 +41,7 @@ requestsRate:
       eventId: entityGuid
       eventName: entityName
 totalLatencyMs:
-  title: Total latency
+  title: Total latency p95 (ms)
   unit: MS
   queries:
     gcp:
