@@ -16,11 +16,11 @@ unackedMessages:
     gcp:
       eventId: entity.guid
       eventName: entity.name
-      select: sum(`gcp.pubsub.topic.num_unacked_messages_by_region`)
+      select: latest(`gcp.pubsub.topic.num_unacked_messages_by_region`)
       from: Metric
     gcpSample:
       eventId: entityGuid
-      select: sum(`topic.NumUnackedMessagesByRegion`)
+      select: latest(`topic.NumUnackedMessagesByRegion`)
       from: GcpPubSubTopicSample
   unit: COUNT
   title: Unacknowledged messages
