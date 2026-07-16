@@ -146,12 +146,12 @@ networkTrafficTx:
       eventId: entityGuid
       eventName: entityName
     gcpSample:
-      select: rate(sum(instance.network.SentBytes), 1 second)
+      select: sum(instance.network.SentBytes)
       from: GcpVirtualMachineSample
       eventId: entityGuid
       eventName: entityName
     gcp:
-      select: rate(sum(gcp.compute.instance.network.sent_bytes_count), 1 second)
+      select: sum(gcp.compute.instance.network.sent_bytes_count)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
@@ -204,12 +204,12 @@ networkTrafficRx:
       eventId: entityGuid
       eventName: entityName
     gcpSample:
-      select: rate(sum(instance.network.ReceivedBytes), 1 second)
+      select: sum(instance.network.ReceivedBytes)
       from: GcpVirtualMachineSample
       eventId: entityGuid
       eventName: entityName
     gcp:
-      select: rate(sum(gcp.compute.instance.network.received_bytes_count), 1 second)
+      select: sum(gcp.compute.instance.network.received_bytes_count)
       from: Metric
       eventId: entity.guid
       eventName: entity.name
